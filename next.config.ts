@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
       "avatars.githubusercontent.com",
       "lh3.googleusercontent.com"
     ]
-  },
-  experimental: {
-    useWasmBinary: false,
   }
 };
 
