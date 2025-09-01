@@ -23,13 +23,13 @@ export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
         setIsLoading(true);
 
         axios.delete(`/api/conversations/${conversationId}`)
-        .then(() => {
-            onClose();
-            router.push('/conversations');
-            router.refresh();
-        })
-        .catch(() => toast.error('Something went wrong!'))
-        .finally(() => setIsLoading(false));
+            .then(() => {
+                onClose();
+                router.push('/conversations');
+                router.refresh();
+            })
+            .catch(() => toast.error('مشکلی پیش آمد!'))
+            .finally(() => setIsLoading(false));
     }, [conversationId, router, onClose]);
 
     return (
@@ -39,15 +39,15 @@ export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
                     <IoTrash className="h-6 w-6 text-red-600" aria-hidden="true" />
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <DialogTitle 
-                        as="h3" 
+                    <DialogTitle
+                        as="h3"
                         className="text-base font-semibold leading-6 text-gray-900"
                     >
-                        Delete conversation
+                        حذف مکالمه
                     </DialogTitle>
                     <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                            Are you sure you want to delete this conversation? This action cannot be undone.
+                            آیا از حذف این مکالمه مطمئن هستید؟ این عمل قابل بازگشت نیست.
                         </p>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
                     onClick={handleDelete}
                     className="w-full inline-flex justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Delete
+                    حذف
                 </button>
                 <button
                     type="button"
@@ -67,7 +67,7 @@ export default function ConfirmModal({ isOpen, onClose }: ConfirmModalProps) {
                     onClick={onClose}
                     className="mt-3 w-full inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Cancel
+                    لغو
                 </button>
             </div>
         </Modal>

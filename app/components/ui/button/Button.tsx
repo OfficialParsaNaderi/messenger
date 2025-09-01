@@ -27,9 +27,9 @@ export default function Button({type, fullWidth, children, onClick, secondary, d
                     focus-visible:outline-offset-2`,
                     disabled && 'opacity-50 cursor-not-allowed',
                     fullWidth && 'w-full',
-                    secondary ? 'text-gray-900' : 'text-white',
+                    secondary ? 'text-blue-500' : 'text-white',
                     danger && 'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
-                    !secondary && !danger && 'bg-gray-800 hover:bg-gray-600 focus-visible:outline-gray-600'
+                    !secondary && !danger && 'bg-blue-500 hover:bg-blue-600 focus-visible:outline-gray-600'
                     )}>
                         {children}
             </button>

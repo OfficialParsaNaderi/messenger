@@ -7,11 +7,9 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { MdOutlineGroupAdd } from "react-icons/md";
 import ConversationBox from "./ConversationBox";
-import { User } from "@/app/generated/prisma";
 
 interface ConversationListProps {
     initialItems: FullConversationType[];
-    users: User[];
 }
 
 export default function ConversationList({ initialItems }: ConversationListProps) {
@@ -31,7 +29,7 @@ export default function ConversationList({ initialItems }: ConversationListProps
             <div className="px-5">
                 <div className="flex justify-between mb-4 pt-6">
                     <div className="text-2xl font-bold text-neutral-800">
-                        Messages
+                        پیام‌ها
                     </div>
                     <div
                         onClick={() => router.push('/users')}
@@ -50,4 +48,4 @@ export default function ConversationList({ initialItems }: ConversationListProps
             </div>
         </aside>
     );
-}
+};

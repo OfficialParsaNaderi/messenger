@@ -42,11 +42,11 @@ export default function Form() {
                     onSuccess={HandleUpload}
                     uploadPreset="jynw04o0"
                 >
-                    <HiMiniPaperClip size={28} className="text-black " />
+                    <HiMiniPaperClip size={28} className="text-blue-500" />
                 </CldUploadButton>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex items-center gap-2 lg:gap-4 w-full">
                     <MessageInput id="message" register={register} errors={errors} required placeholder="Type a message" />
-                    <button type="submit" className="bg-black hover:bg-black text-white font-bold py-2 px-2 rounded-full transition">
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded-full transition rotate-180">
                         <HiMiniPaperAirplane size={24} />
                     </button>
                 </form>

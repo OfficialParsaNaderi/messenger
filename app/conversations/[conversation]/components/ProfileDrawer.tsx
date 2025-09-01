@@ -29,18 +29,18 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
     }, [otherUser?.createdAt]);
 
     const title = useMemo(() => {
-        return data.name || otherUser?.name || 'No Name';
+        return data.name || otherUser?.name || 'بدون نام';
     }, [data.name, otherUser?.name]);
 
     const statusText = useMemo(() => {
         if (data.isGroup) {
-            return `${data.users?.length || 0} Members`;
+            return `${data.users?.length || 0} عضو`;
         }
-        return 'Active';
+        return 'فعال';
     }, [data]);
 
     if (!data) {
-        return <div>Loading...</div>;
+        return <div>در حال بارگذاری...</div>;
     }
 
     return (
@@ -71,6 +71,7 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                     enterFrom="translate-x-full"
                                     enterTo="translate-x-0"
                                     leave="transform transition ease-in-out duration-200"
+                                    leaveFrom="translate-x-full"
                                     leaveTo="translate-x-full"
                                 >
                                     <DialogPanel className="pointer-events-auto w-screen max-w-md bg-white">
@@ -83,7 +84,7 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                         className="rounded-lg p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                                         onClick={onClose}
                                                     >
-                                                        <span className="sr-only">Close panel</span>
+                                                        <span className="sr-only">بستن پنل</span>
                                                         <IoClose size={24} aria-hidden="true" />
                                                     </button>
                                                 </div>
@@ -110,26 +111,26 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                         <dl className="space-y-4">
                                                             {data.isGroup && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">Emails</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">ایمیل‌ها</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
-                                                                        {data.users.map((user) => user.email || 'No Email').join(', ')}
+                                                                        {data.users.map((user) => user.email || 'ایمیل ندارد').join(', ')}
                                                                     </dd>
                                                                 </div>
                                                             )}
                                                             {!data.isGroup && otherUser && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">Email</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">ایمیل</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
-                                                                        {otherUser.email || 'No Email'}
+                                                                        {otherUser.email || 'ایمیل ندارد'}
                                                                     </dd>
                                                                 </div>
                                                             )}
                                                             {!data.isGroup && otherUser && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">Joined</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">تاریخ عضویت</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
                                                                         <time dateTime={joinedDate}>
-                                                                            {joinedDate || 'Unknown'}
+                                                                            {joinedDate || 'نامشخص'}
                                                                         </time>
                                                                     </dd>
                                                                 </div>
@@ -141,7 +142,7 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                             onClick={() => setConfirmOpen(true)}
                                                         >
                                                             <HiTrash size={20} className="mr-2" />
-                                                            Delete Conversation
+                                                            حذف مکالمه
                                                         </button>
                                                     </div>
                                                 </div>
