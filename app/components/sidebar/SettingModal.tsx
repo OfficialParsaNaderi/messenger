@@ -50,10 +50,10 @@ export default function SettingModel({ currentUser, isOpen, onClose }: SettingMo
         axios.post('/api/settings', data)
             .then(() => {
                 router.refresh();
-                toast.success('پروفایل با موفقیت به‌روزرسانی شد!');
+                toast.success('Profile successfully updated!');
                 onClose();
             })
-            .catch(() => toast.error('مشکلی پیش آمد!'))
+            .catch(() => toast.error('Something went wrong!'))
             .finally(() => {
                 setIsLoading(false);
             });
@@ -90,15 +90,15 @@ export default function SettingModel({ currentUser, isOpen, onClose }: SettingMo
                                     <div className="space-y-12">
                                         <div className="border-b border-gray-900/10 pb-12">
                                             <h2 className="text-base font-semibold leading-7 text-gray-900">
-                                                پروفایل
+                                                Profile
                                             </h2>
                                             <p className="mt-1 text-sm leading-3 text-gray-600">
-                                                اطلاعات عمومی خود را ویرایش کنید.
+                                                Edit your public information.
                                             </p>
                                             <div className="mt-5 mb-5 flex flex-col gap-y-0">
                                                 <Input
                                                     disabled={isLoading}
-                                                    label="نام"
+                                                    label="Name"
                                                     id="name"
                                                     errors={errors}
                                                     required
@@ -106,7 +106,7 @@ export default function SettingModel({ currentUser, isOpen, onClose }: SettingMo
                                                 />
                                                 <div>
                                                     <label className="block mt-5 text-sm font-medium leading-6 text-gray-900">
-                                                        عکس
+                                                        Photo
                                                     </label>
                                                     <div className="mt-2 flex items-center gap-x-3">
                                                         <Image
@@ -114,13 +114,13 @@ export default function SettingModel({ currentUser, isOpen, onClose }: SettingMo
                                                             height="48"
                                                             className="rounded-full"
                                                             src={image || currentUser?.image || '/images/PlaceHolder.png'}
-                                                            alt="آواتار"
+                                                            alt="Avatar"
                                                         />
                                                         <CldUploadWidget onSuccess={handleUpload} uploadPreset="jynw04o0">
                                                             {({ open }) => {
                                                                 return (
                                                                     <Button disabled={isLoading} secondary type="button" onClick={() => open?.()}>
-                                                                        تغییر
+                                                                        Change
                                                                     </Button>
                                                                 );
                                                             }}
@@ -132,10 +132,10 @@ export default function SettingModel({ currentUser, isOpen, onClose }: SettingMo
                                     </div>
                                     <div className="mt-6 flex items-center justify-end gap-x-5">
                                         <Button disabled={isLoading} secondary onClick={onClose}>
-                                            لغو
+                                            Cancel
                                         </Button>
                                         <Button disabled={isLoading} type="submit" fullWidth>
-                                            ذخیره
+                                            Save
                                         </Button>
                                     </div>
                                 </form>

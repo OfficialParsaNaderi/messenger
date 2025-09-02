@@ -29,7 +29,7 @@ export default function ConversationList({ initialItems }: ConversationListProps
             <div className="px-5">
                 <div className="flex justify-between mb-4 pt-6">
                     <div className="text-2xl font-bold text-neutral-800">
-                        پیام‌ها
+                        Messages
                     </div>
                     <div
                         onClick={() => router.push('/users')}

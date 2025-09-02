@@ -14,7 +14,6 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
     return (
         <Transition show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-50" onClose={onClose}>
-                {/* این TransitionChild برای پس‌زمینه (overlay) است */}
                 <TransitionChild
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -31,7 +30,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
                 <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                        {/* این TransitionChild برای خود پنجره مودال است */}
+                        {/* This TransitionChild is for the modal window itself */}
                         <TransitionChild
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -48,7 +47,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                                         onClick={onClose}
                                     >
-                                        <span className="sr-only">بستن</span>
+                                        <span className="sr-only">Close</span>
                                         <IoClose className="h-6 w-6" aria-hidden="true" />
                                     </button>
                                 </div>

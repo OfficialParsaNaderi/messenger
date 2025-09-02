@@ -50,21 +50,21 @@ model VerificationToken {
 }
 
 model User {
-  id              String    @id @default(uuid())
-  name            String?
-  email           String?   @unique
-  emailVerified   DateTime?
-  image           String?
-  hashedPassword  String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  id             String    @id @default(uuid())
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
-  accounts        Account[]
-  sessions        Session[]
+  accounts      Account[]
+  sessions      Session[]
 
-  conversations   Conversation[]
-  seenMessages    Message[]      @relation("SeenMessages")
-  messages        Message[]      @relation("UserMessages")
+  conversations Conversation[] @relation("UserConversations")
+  seenMessages  Message[]      @relation("SeenMessages")
+  messages      Message[]      @relation("UserMessages")
 }
 
 model Conversation {
@@ -74,7 +74,7 @@ model Conversation {
   name          String?
   isGroup       Boolean?
   messages      Message[]
-  users         User[]
+  users         User[] @relation("UserConversations")
 }
 
 model Message {

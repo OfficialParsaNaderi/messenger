@@ -52,7 +52,7 @@ export default function AuthForm() {
                     })
                         .then((callback) => {
                             if (callback?.ok && !callback?.error) {
-                                toast.success('حساب کاربری ایجاد شد و وارد شدید!');
+                                toast.success('Account created and logged in!');
                                 router.push('/users');
                             }
                             if (callback?.error) {
@@ -60,7 +60,7 @@ export default function AuthForm() {
                             }
                         });
                 })
-                .catch(() => toast.error('ثبت‌نام ناموفق بود!'))
+                .catch(() => toast.error('Registration failed!'))
                 .finally(() => setIsLoading(false));
         }
 
@@ -71,10 +71,10 @@ export default function AuthForm() {
             })
                 .then((callback) => {
                     if (callback?.error) {
-                        toast.error('اطلاعات کاربری نامعتبر است');
+                        toast.error('Invalid credentials');
                     }
                     if (callback?.ok && !callback?.error) {
-                        toast.success('با موفقیت وارد شدید');
+                        toast.success('Successfully logged in');
                         router.push('/users');
                     }
                 })
@@ -88,11 +88,11 @@ export default function AuthForm() {
         signIn(action, { redirect: false })
             .then((callback) => {
                 if (callback?.error) {
-                    toast.error(`خطا: ${callback.error}`);
+                    toast.error(`Error: ${callback.error}`);
                 }
                 if (callback?.ok && !callback?.error) {
                     router.push('/users');
-                    toast.success('با موفقیت وارد شدید');
+                    toast.success('Successfully logged in');
                 }
             })
             .finally(() => setIsLoading(false));
@@ -104,17 +104,17 @@ export default function AuthForm() {
                 <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
                     <form className="space-y-3" onSubmit={handleSubmit(onSubmit)} >
                         {variant === "REGISTER" && (
-                            <Input id="name" label="نام"
+                            <Input id="name" label="Name"
                                 register={register} errors={errors} disabled={isLoading} />
                         )}
-                        <Input id="email" label="ایمیل"
+                        <Input id="email" label="Email"
                             register={register} errors={errors} disabled={isLoading} />
-                        <Input id="password" label="رمز عبور"
+                        <Input id="password" label="Password"
                             register={register} errors={errors} disabled={isLoading} />
 
                         <div className="mt-6">
                             <Button disabled={isLoading} fullWidth type="submit">
-                                {variant === "LOGIN" ? "ورود" : "ثبت‌نام"}
+                                {variant === "LOGIN" ? "Log In" : "Sign Up"}
                             </Button>
                         </div>
                     </form>
@@ -126,7 +126,7 @@ export default function AuthForm() {
                             </div>
                             <div className="relative flex justify-center text-sm">
                                 <span className="bg-white px-2 text-gray-500 font-bold">
-                                    یا
+                                    Or
                                 </span>
                             </div>
                         </div>
@@ -138,9 +138,9 @@ export default function AuthForm() {
                     </div>
 
                     <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
-                        {variant === 'LOGIN' ? 'در مسنجر ما عضو نیستید؟' : 'قبلاً حساب کاربری دارید؟'}
+                        {variant === 'LOGIN' ? 'Not a member of our messenger?' : 'Already have an account?'}
                         <div onClick={toggleVariant} className="underline cursor-pointer">
-                            {variant === 'LOGIN' ? 'ساخت حساب کاربری' : 'ورود'}
+                            {variant === 'LOGIN' ? 'Create an account' : 'Log In'}
                         </div>
                     </div>
                 </div>

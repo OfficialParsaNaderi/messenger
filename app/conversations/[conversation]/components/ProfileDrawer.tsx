@@ -29,18 +29,18 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
     }, [otherUser?.createdAt]);
 
     const title = useMemo(() => {
-        return data.name || otherUser?.name || 'بدون نام';
+        return data.name || otherUser?.name || 'Unnamed';
     }, [data.name, otherUser?.name]);
 
     const statusText = useMemo(() => {
         if (data.isGroup) {
-            return `${data.users?.length || 0} عضو`;
+            return `${data.users?.length || 0} members`;
         }
-        return 'فعال';
+        return 'Active';
     }, [data]);
 
     if (!data) {
-        return <div>در حال بارگذاری...</div>;
+        return <div>Loading...</div>;
     }
 
     return (
@@ -84,7 +84,7 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                         className="rounded-lg p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                                         onClick={onClose}
                                                     >
-                                                        <span className="sr-only">بستن پنل</span>
+                                                        <span className="sr-only">Close panel</span>
                                                         <IoClose size={24} aria-hidden="true" />
                                                     </button>
                                                 </div>
@@ -111,26 +111,26 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                         <dl className="space-y-4">
                                                             {data.isGroup && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">ایمیل‌ها</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">Emails</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
-                                                                        {data.users.map((user) => user.email || 'ایمیل ندارد').join(', ')}
+                                                                        {data.users.map((user) => user.email || 'No email').join(', ')}
                                                                     </dd>
                                                                 </div>
                                                             )}
                                                             {!data.isGroup && otherUser && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">ایمیل</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">Email</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
-                                                                        {otherUser.email || 'ایمیل ندارد'}
+                                                                        {otherUser.email || 'No email'}
                                                                     </dd>
                                                                 </div>
                                                             )}
                                                             {!data.isGroup && otherUser && (
                                                                 <div>
-                                                                    <dt className="text-sm font-medium text-gray-500">تاریخ عضویت</dt>
+                                                                    <dt className="text-sm font-medium text-gray-500">Joined</dt>
                                                                     <dd className="mt-1 text-sm text-gray-900">
                                                                         <time dateTime={joinedDate}>
-                                                                            {joinedDate || 'نامشخص'}
+                                                                            {joinedDate || 'Unknown'}
                                                                         </time>
                                                                     </dd>
                                                                 </div>
@@ -142,7 +142,7 @@ export default function ProfileDrawer({ data, isOpen, onClose }: ProfileDrawerPr
                                                             onClick={() => setConfirmOpen(true)}
                                                         >
                                                             <HiTrash size={20} className="mr-2" />
-                                                            حذف مکالمه
+                                                            Delete conversation
                                                         </button>
                                                     </div>
                                                 </div>

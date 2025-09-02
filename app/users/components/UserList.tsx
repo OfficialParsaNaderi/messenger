@@ -22,5 +22,5 @@ export default function UserList({ items } : UserListProps) {
             </div>
         </aside>
         </>
-    )
-}
+    );
+};
