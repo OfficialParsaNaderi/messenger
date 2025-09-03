@@ -15,7 +15,7 @@ export default function Hero() {
                     />
 
                     <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">
-                        Let&apos;s chat!
+                        Let&apos;s chat !
                     </h2>
                 </div>
 

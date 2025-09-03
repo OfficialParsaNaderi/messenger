@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
-import { Vazirmatn } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 import ToasterContext from "./context/ToasterContext";
 import AuthContext from "./context/AuthContext";
 
-// const inter = Inter({ subsets: ["latin"] });
-const vazirmatn = Vazirmatn({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Messenger",
@@ -20,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
-      <body className={vazirmatn.className}>
+    <html lang="en">
+      <body className={inter.className}>
         <AuthContext>
           <ToasterContext />
           {children}
