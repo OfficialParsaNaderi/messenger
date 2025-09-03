@@ -31,7 +31,7 @@ export default function Header({ conversation }: HeaderProps) {
             <ProfileDrawer data={conversation} isOpen={drawerOpen} onDelete={() => setDrawerOpen(false)} onClose={() => setDrawerOpen(false)} />
             <div className="bg-white w-full flex border-b-[1px] border-gray-200 sm:px-4 py-3 px-4 lg:px-4 justify-between items-center shadow-sm">
                 <div className="flex gap-3 items-center">
-                    <Link href={'/conversations'} className="lg:hidden block text-black hover:text-black transition cursor-pointer">
+                    <Link href={'/conversations'} className="lg:hidden block text-blue-500 hover:text-blue-600 transition cursor-pointer">
                         <HiChevronLeft size={32} />
                     </Link>
                     <Avatar user={otherUser} />
@@ -44,7 +44,7 @@ export default function Header({ conversation }: HeaderProps) {
                         </div>
                     </div>
                 </div>
-                <HiEllipsisHorizontal size={32} onClick={() => setDrawerOpen(true)} className="text-black cursor-pointer transition" />
+                <HiEllipsisHorizontal size={32} onClick={() => setDrawerOpen(true)} className="text-blue-500 cursor-pointer transition" />
             </div>
         </>
     );

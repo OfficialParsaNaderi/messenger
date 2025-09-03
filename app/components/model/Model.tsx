@@ -23,14 +23,11 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div
-                        className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-                    />
+                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
                 </TransitionChild>
 
                 <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                        {/* This TransitionChild is for the modal window itself */}
                         <TransitionChild
                             as={Fragment}
                             enter="ease-out duration-300"
